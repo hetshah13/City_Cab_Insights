@@ -10,3 +10,8 @@ path = c("Data\yellow_tripdata_2023-01.parquet",
 
 dfs <- lapply(path, read_parquet)
 View(dfs)
+
+## variable understanding 
+unique_vendor = unique(dfs[[1]][["VendorID"]]);unique_vendor     # 1 2
+
+summary(dfs[[1]])
