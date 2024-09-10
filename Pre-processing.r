@@ -20,9 +20,11 @@ u_pay = unique(dfs[[1]][["payment_type"]]); u_pay    # 2 1 4 3 0
 summary(dfs[[1]])
 
 ## Data wrangling
-#(1) data wrangling removing redundant recordes sequentially (first data is in negative and same record is in positive value.if i remove negative records it will automatically duplicate records will be removed.)
-
+#(1) data wrangling removing redundant recordes sequentially from total amount (first data is in negative and same record is in positive value.if i remove negative records it will automatically duplicate records will be removed.)
 flt_data = filtered_data <- dfs[[1]][dfs[[1]]$total_amount >= 0.01, ]
+
+# removing duplicates
+flt_data = dfs[[1]][!duplicated(dfs[[1]]) & !duplicated(dfs[[1]], fromLast = TRUE)]
 View(flt_data)
 
 
