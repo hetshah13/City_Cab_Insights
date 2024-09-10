@@ -31,3 +31,14 @@ View(flt_data)
 #(2) Remove rows where trip distance is 0 and PULocationID is equal to DOLocationID
 filtered_data <- dfs[[1]][!(dfs[[1]]$trip_distance == 0 & dfs[[1]]$PULocationID == dfs[[1]]$DOLocationID), ]
 View(filtered_data)
+
+#(3) Assuming your data frame is called 'df' and the timestamp column is 'tpep_pickup_datetime'
+# Convert 'tpep_pickup_datetime' column to POSIXct if it's not already in that format
+dfs[[1]]$tpep_pickup_datetime <- as.POSIXct(dfs[[1]]$tpep_pickup_datetime)
+
+# Filter using subset function
+filtered_data <- subset(dfs[[1]], tpep_pickup_datetime >= as.POSIXct("2023-01-01 00:00:01") & tpep_pickup_datetime <= as.POSIXct("2023-02-01 08:00:00"))
+View(filtered_data)
+
+# Or filter using boolean indexing
+filtered_data <- df[df$tpep_pickup_datetime >= as.POSIXct("2023-01-01 00:00:51") & df$tpep_pickup_datetime <= as.POSIXct("2023-02-01 05:00:00"), ]
