@@ -93,7 +93,7 @@ View(months_flt_data)
 clean_data <- lapply(months_flt_data, function(x) x[complete.cases(x), ])
 View(clean_data)
 
-## 4. Merging two file for location 
+## 4. Merging two file for location details
 # Merge based on LocationID and PULocationID
 
 #merged_data <- merge(flt[[1]],file1, by.y = "LocationID", by.x = "PULocationID")
