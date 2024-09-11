@@ -43,9 +43,10 @@ View(filtered_data)
 filtered_data <- df[df$tpep_pickup_datetime >= as.POSIXct("2023-01-01 00:00:51") & df$tpep_pickup_datetime <= as.POSIXct("2023-02-01 05:00:00"), ]
 
 # DATA CLEANING
+## 1. Removing Data Redundancy same value of data in Negative value. (Noicy Data)
 # Define a function to filter dataframe based on conditions
 filter_dataframe <- function(df) {
-  
+
   # Remove rows where total_amount is less than 0.01
   # Remove rows where fare_amount is less than 0.01 ,mta_tax is less than 0.00
   df <- df[df$total_amount >= 0.01 & df$fare_amount >= 0.01 & df$mta_tax >= 0.00 & df$extra >= 0.00, ]
@@ -62,3 +63,28 @@ flt_dfs <- lapply(dfs, filter_dataframe)
 # Downloading dataframe  after data cleaning
 # write_parquet(dataframe[[1]],"path where they store")
 write_parquet(flt_dfs[[1]],"D:/BDA/sem4/project/taxi_data/flt_1.parquet")
+
+## 2. Removing Irrelavant Data For.eg 2023 Jan Dataframe having 2010 May data   
+filter_data_by_month <- function(df_list) {
+  # Iterate over each data frame in the list
+  for (i in seq_along(df_list)) {
+    current_df <- df_list[[i]]
+    
+    # Convert timestamp column to POSIXct if it's not already in that format
+    current_df$tpep_pickup_datetime <- as.POSIXct(current_df$tpep_pickup_datetime)
+    
+    # Define start and end dates for the current month
+    start_date <- as.POSIXct(paste("2023-", sprintf("%02d", i), "-01 00:00:01", sep = ""))
+    end_date <- as.POSIXct(paste("2023-", sprintf("%02d", i + 1), "-01 06:00:00", sep = ""))
+    
+    # Filter data for the current month in place
+    df_list[[i]] <- subset(current_df, 
+                           tpep_pickup_datetime >= start_date & 
+                             tpep_pickup_datetime <= end_date)
+  }
+  return(df_list)  # Return the modified list of data frames
+}
+
+# Call the filter_data_by_month function
+f_data <- filter_data_by_month(flt_dfs)
+View(f_data)
