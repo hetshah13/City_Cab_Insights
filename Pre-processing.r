@@ -64,7 +64,7 @@ flt_dfs <- lapply(dfs, filter_dataframe)
 # write_parquet(dataframe[[1]],"path where they store")
 write_parquet(flt_dfs[[1]],"D:/BDA/sem4/project/taxi_data/flt_1.parquet")
 
-## 2. Removing Irrelavant Data For.eg 2023 Jan Dataframe having 2010 May data   
+## 2. Removing Irrelavant Data (For.eg 2023 Jan Dataframe having 2010 May data)   
 filter_data_by_month <- function(df_list) {
   # Iterate over each data frame in the list
   for (i in seq_along(df_list)) {
@@ -86,5 +86,27 @@ filter_data_by_month <- function(df_list) {
 }
 
 # Call the filter_data_by_month function
-f_data <- filter_data_by_month(flt_dfs)
-View(f_data)
+months_flt_data <- filter_data_by_month(flt_dfs)
+View(months_flt_data)
+
+## 3. Remove Null Values
+clean_data <- lapply(months_flt_data, function(x) x[complete.cases(x), ])
+View(clean_data)
+
+## 4. Merging two file for location 
+# Merge based on LocationID and PULocationID
+
+#merged_data <- merge(flt[[1]],file1, by.y = "LocationID", by.x = "PULocationID")
+#merged_data
+
+merged_list <- list()
+
+for (i in seq_along(flt)) {
+  merged_data <- merge(flt[[i]], file1, by.y = "LocationID", by.x = "PULocationID")
+  
+  merged_list[[i]] <- merged_data
+}
+
+
+summary(merged_list[[1]])
+merged_data["service_zone"]
