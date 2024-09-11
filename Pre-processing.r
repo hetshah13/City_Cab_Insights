@@ -107,6 +107,9 @@ for (i in seq_along(flt)) {
   merged_list[[i]] <- merged_data
 }
 
-
 summary(merged_list[[1]])
 merged_data["service_zone"]
+
+# Removing Null lat long
+clean_data <- lapply(merged_list, function(x) x[complete.cases(x), ])
+View(clean_data)
