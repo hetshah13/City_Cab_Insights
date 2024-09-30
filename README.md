@@ -5,9 +5,14 @@ This project City Cab Insight explores the NYC Yellow Taxi dataset to uncover pa
 ## Project Overview
 The City Cab Insight project provides a comprehensive exploration of the NYC Yellow Taxi trips, identifying key trends and providing recommendations for optimizing taxi services across the city.
 
-**Key Objectives:**
+### **Key Objectives:**
 
-Understand cab demand patterns across various locations.
-Identify peak hours and trends in ride durations and fare amounts.
-Recommend strategies to optimize taxi availability and pricing.
-Explore geographic distribution and identify high-demand and high-fare zones.
+1. Understand cab demand patterns across various locations.
+2. Identify peak hours and trends in ride durations and fare amounts.
+3. Recommend strategies to optimize taxi availability and pricing.
+4. Explore geographic distribution and identify high-demand and high-fare zones.
+
+### **Dataset**
+**Source:** NYC Yellow Taxi Trip Records (2023)
+**Original Size:** 38.3 million records
+**Final Dataset:** After cleaning and pre-processing, 36 million records
