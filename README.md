@@ -14,5 +14,7 @@ The City Cab Insight project provides a comprehensive exploration of the NYC Yel
 
 ### **Dataset**
 **Source:** NYC Yellow Taxi Trip Records (2023)
+
 **Original Size:** 38.3 million records
+
 **Final Dataset:** After cleaning and pre-processing, 36 million records
