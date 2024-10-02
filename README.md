@@ -18,3 +18,20 @@ The City Cab Insight project provides a comprehensive exploration of the NYC Yel
 **Original Size:** 38.3 million records
 
 **Final Dataset:** After cleaning and pre-processing, 36 million records
+
+
+### **Data Pre-processing**
+
+To prepare the dataset for analysis, we performed several data cleaning steps:
+
+**Removing Duplicates:** Duplicate records were removed to ensure the integrity of the analysis.
+
+**Filtering by Relevant Date:** Only trips from 2023 were included in the dataset.
+
+**Handling Null Values:** Missing values in key fields such as fare amount and trip distance were imputed or removed But here we removed it.
+
+**Combining Geographical Data:** Merged data with location zone information to map pickup/dropoff locations to specific areas of NYC.
+
+**Outlier Removal:** Applied the Isolation Forest technique to remove anomalous trips (e.g., unusually long or short durations, or zero-fare trips).
+
+After pre-processing, the dataset was reduced to **36 million records** for further analysis.
