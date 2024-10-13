@@ -20,7 +20,7 @@ The City Cab Insight project provides a comprehensive exploration of the NYC Yel
 **Final Dataset:** After cleaning and pre-processing, 36 million records
 
 
-### **Data Pre-processing**
+## 1. **Data Pre-processing**
 
 To prepare the dataset for analysis, we performed several data cleaning steps:
 
@@ -35,3 +35,14 @@ To prepare the dataset for analysis, we performed several data cleaning steps:
 **Outlier Removal:** Applied the Isolation Forest technique to remove anomalous trips (e.g., unusually long or short durations, or zero-fare trips).
 
 After pre-processing, the dataset was reduced to **36 million records** for further analysis.
+
+
+## 2. **Exploratory Data Analysis (EDA)**
+
+#### Key Insights:
+1. High-Demand Areas: Popular pickup/dropoff locations were concentrated in Manhattan, near Times Square, Central Park, and major transit hubs like Penn Station and Grand Central.
+2. Peak Hours: Highest demand observed during Mid-night and evening rush hours.
+3. Trip Duration: Average trip duration was found to be around 12-15 minutes, with a wide range during peak traffic hours.
+4. Fare Distribution: The average fare was around $15-$20, with higher fares typically observed for trips to/from airports (JFK, LaGuardia).
+5. Geographic Insights: Central Business District had the highest number of trips. Trips from outer boroughs (Brooklyn, Queens) tend to be longer in duration but fewer in number.
+
