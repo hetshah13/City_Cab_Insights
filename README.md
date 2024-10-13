@@ -46,3 +46,14 @@ After pre-processing, the dataset was reduced to **36 million records** for furt
 4. Fare Distribution: The average fare was around $15-$20, with higher fares typically observed for trips to/from airports (JFK, LaGuardia).
 5. Geographic Insights: Central Business District had the highest number of trips. Trips from outer boroughs (Brooklyn, Queens) tend to be longer in duration but fewer in number.
 
+## Tools and Libraries Used
+
+**Python:** Data pre-processing and analysis
+
+**Pandas:** For data manipulation and cleaning
+
+**NumPy:** To handle numerical operations
+
+**Matplotlib & Seaborn:** For data visualization
+
+**Scikit-learn:** For machine learning (Isolation Forest for outlier detection)
